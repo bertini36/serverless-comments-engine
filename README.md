@@ -2,13 +2,24 @@
     bertini36/comments-engine 🙊 
 </h3>
 <p align="center">
+  <a href="#-environment-setup" target="_blank">
+    Installation
+  </a>&nbsp;&nbsp;•&nbsp;
+  <a href="https://github.com/bertini36/comments-engine/blob/master/serverless.yml" target="_blank">
+    Serverless config
+  </a>&nbsp;&nbsp;•&nbsp;
+  <a href="https://github.com/bertini36/comments-engine/blob/master/Makefile" target="_blank">
+    Commands
+  </a>
+</p>
+<p align="center">
 A basic comments engine coded just for fun and to use it on my
  <a href="https://albertopou.dev/" target="_blank">blog</a>.  
 </p>
 <p align="center">
-Powered by <a href="https://www.serverless.com/">#serverless</a>,
-<a href="https://aws.amazon.com/">#aws</a> and 
- <a href="https://flask.palletsprojects.com/en/1.1.x/">#flask</a>.
+Powered by <a href="https://www.serverless.com/" target="_blank">#serverless</a>,
+<a href="https://aws.amazon.com/" target="_blank">#aws</a> and 
+ <a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank">#flask</a>.
 </p>
 
 ## ⚙️ Environment Setup
