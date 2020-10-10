@@ -1,0 +1,71 @@
+org: bertini36
+service: serverless-flask
+
+plugins:
+  - serverless-python-requirements
+  - serverless-wsgi
+custom:
+  commentsTableName: 'comments-table-${self:provider.stage}'
+  wsgi:
+    app: app.app
+    packRequirements: false
+  pythonRequirements:
+    dockerizePip: non-linux
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: prod
+  memorySize: 256
+  region: eu-west-1
+  usagePlan:
+    quota:
+      limit: 1000
+      period: MONTH
+    throttle:
+      burstLimit: 50
+      rateLimit: 50
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+      Resource:
+        - { "Fn::GetAtt": ['CommentsDynamoDBTable', 'Arn' ] }
+  environment:
+    COMMENTS_TABLE: ${self:custom.commentsTableName}
+    FLASK_ENV: 'production'
+
+functions:
+  getComments:
+    handler: wsgi_handler.handler
+    events:
+      - http:
+          path: comments/{proxy+}
+          method: get
+          cors: true
+  addComment:
+    handler: wsgi_handler.handler
+    events:
+      - http:
+          path: comments/{proxy+}
+          method: post
+          cors: true
+
+resources:
+  Resources:
+    CommentsDynamoDBTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: postSlug
+            AttributeType: S
+        KeySchema:
+          - AttributeName: postSlug
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:custom.commentsTableName}

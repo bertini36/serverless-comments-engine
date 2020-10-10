@@ -1,0 +1,23 @@
+version: "3"
+services:
+
+  comments-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      FLASK_ENV: "development"
+    volumes:
+      - ".:/code/"
+    ports:
+      - "5000:5000"
+    command: flask run
+
+  serverless:
+    build:
+      context: .
+      dockerfile: ServerlessDockerfile
+    env_file:
+      - .env
+    volumes:
+      - ".:/code/"

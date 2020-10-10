@@ -1,0 +1,12 @@
+# Confs
+.todo
+.env
+.serverless
+
+# Python
+.direnv
+*.pyc
+__pycache__
+
+# Node
+/node_modules/
