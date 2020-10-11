@@ -26,7 +26,7 @@ connect:
 
 log:
 	@echo "📋 Showing logs"
-	@docker-compose logs -f --tail 100 ${T}
+	@docker-compose logs -f --tail 100 comments-engine
 
 update:
 	@echo "📥 Updating dependencies"
