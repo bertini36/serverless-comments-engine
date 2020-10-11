@@ -1,5 +1,6 @@
+[![Build Status](https://travis-ci.org/bertini36/comments-engine.svg?branch=master)](https://travis-ci.org/bertini36/comments-engine)
 <h3 align="center">
-    bertini36/comments-engine 🙊 
+    bertini36/comments-engine 🙊
 </h3>
 <p align="center">
   <a href="#-environment-setup" target="_blank">
@@ -14,11 +15,11 @@
 </p>
 <p align="center">
 A basic comments engine coded just for fun and to use it on my
- <a href="https://albertopou.dev/" target="_blank">blog</a>.  
+ <a href="https://albertopou.dev/" target="_blank">blog</a>.
 </p>
 <p align="center">
 Powered by <a href="https://www.serverless.com/" target="_blank">#serverless</a>,
-<a href="https://aws.amazon.com/" target="_blank">#aws</a> and 
+<a href="https://aws.amazon.com/" target="_blank">#aws</a> and
  <a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank">#flask</a>.
 </p>
 
