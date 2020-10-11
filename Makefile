@@ -38,6 +38,6 @@ lint:
 test:
 	@echo "🏃‍ Running tests"
 
-deploy: lint test
+deploy:
 	@echo "🛫 Let's deploy!!!"
 	@docker-compose run --rm --entrypoint /bin/sh serverless -c "cd /code/ && serverless deploy"
