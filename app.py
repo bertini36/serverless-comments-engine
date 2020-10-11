@@ -36,5 +36,5 @@ app.add_url_rule(
 app.add_url_rule(
     '/comments/<string:post_slug>',
     view_func=container.add_comment_view.as_view(),
-    methods=('POST',)
+    methods=('POST', 'OPTIONS')
 )
