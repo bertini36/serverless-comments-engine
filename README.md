@@ -37,7 +37,7 @@ Powered by <a href="https://www.serverless.com/" target="_blank">#serverless</a>
 
 ## 🚀 Deploy
 
-First configure your AWS credentials at `.env`.
+First configure your AWS credentials and Sentry DSN in `.env` file.
 ```bash
 cp .env-sample .env
 ```

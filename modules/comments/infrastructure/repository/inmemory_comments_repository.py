@@ -1,46 +1,40 @@
+import json
+import os.path
+from collections import defaultdict
 from typing import List
 
 from ...domain.comment import Comment
 from ...domain.comments_repository import CommentsRepository
-from ...domain.exceptions import DatabaseError
 
 
 class InMemoryCommentsRepository(CommentsRepository):
+    COMMENTS_PATH = 'data/comments.json'
 
     def __init__(self):
-        self.data = {
-            'recoding-my-blog': [
-                Comment(
-                    post_slug='recoding-my-blog',
-                    name='Monkey D. Luffy',
-                    email='luffy@op.com',
-                    text='Great job!'
-                ),
-                Comment(
-                    post_slug='recoding-my-blog',
-                    name='Roronoa Zoro',
-                    email='zoro@op.com',
-                    text='...'
-                ),
-            ],
-            'profiling-on-social-networks': [
-                Comment(
-                    post_slug='recoding-my-blog',
-                    name='Vinsmoke Sanji',
-                    email='sanji@op.com',
-                    text='Cool!'
-                ),
-            ]
-        }
+        self.data = defaultdict(list)
+        if os.path.exists(self.COMMENTS_PATH):
+            self.data = defaultdict(list, self._read_comments_json())
 
     def get_comments(self, post_slug: str) -> List[Comment] or None:
-        try:
-            return self.data[post_slug]
-        except KeyError:
-            raise DatabaseError('Database error')
+        return self.data[post_slug]
 
     def add_comment(self, comment: Comment):
-        try:
-            self.data[comment.post_slug].append(comment)
-        except KeyError:
-            raise DatabaseError('Database error')
+        self.data[comment.post_slug].append(comment)
+        self._write_comments_json()
+
+    def _read_comments_json(self) -> dict:
+        serialized_data = json.load(open(self.COMMENTS_PATH, 'r'))
+        data = {
+            post_slug: [
+                Comment(**comment_kwargs) for comment_kwargs in raw_comments
+            ]
+            for post_slug, raw_comments in serialized_data.items()
+        }
+        return data
+
+    def _write_comments_json(self):
+        serialized_data = {
+            post_slug: [comment.serialize() for comment in comments]
+            for post_slug, comments in self.data.items()
+        }
+        json.dump(serialized_data, open(self.COMMENTS_PATH, 'w'))

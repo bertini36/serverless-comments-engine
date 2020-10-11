@@ -4,19 +4,22 @@
 #
 #    pip-compile /code/requirements/dev.in
 #
+blinker==1.4              # via sentry-sdk
+certifi==2020.6.20        # via sentry-sdk
 click==7.1.2              # via -r /code/requirements/base.in, flask, pip-tools
 dependency-injector==4.0.0  # via -r /code/requirements/base.in
 docutils==0.16            # via -r /code/requirements/base.in
 flask-cors==3.0.9         # via -r /code/requirements/base.in
-flask==1.1.2              # via -r /code/requirements/base.in, flask-cors
+flask==1.1.2              # via -r /code/requirements/base.in, flask-cors, sentry-sdk
 itsdangerous==1.1.0       # via -r /code/requirements/base.in, flask
 jinja2==2.11.2            # via -r /code/requirements/base.in, flask
 jmespath==0.10.0          # via -r /code/requirements/base.in
 markupsafe==1.1.1         # via -r /code/requirements/base.in, jinja2
 pip-tools==5.3.1          # via -r /code/requirements/dev.in
 python-dateutil==2.8.1    # via -r /code/requirements/base.in
+sentry-sdk[flask]==0.18.0  # via -r /code/requirements/base.in
 six==1.15.0               # via -r /code/requirements/base.in, dependency-injector, flask-cors, pip-tools, python-dateutil
-urllib3==1.25.10          # via -r /code/requirements/base.in
+urllib3==1.25.10          # via -r /code/requirements/base.in, sentry-sdk
 werkzeug==1.0.1           # via -r /code/requirements/base.in, flask
 
 # The following packages are considered to be unsafe in a requirements file:

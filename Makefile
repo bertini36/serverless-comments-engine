@@ -6,11 +6,11 @@ $(eval export $(shell sed -ne 's/ *#.*$//; /./ s/=.*$$// p' .env))
 .PHONY: build
 build:
 	@echo "📦 Building app"
-	@docker-compose build --no-cache
+	@docker-compose build --no-cache comments-engine
 
 serve:
 	@echo "🚀 Serving app"
-	docker-compose up -d
+	docker-compose up comments-engine
 
 down:
 	@echo "🔌 Disconnecting"

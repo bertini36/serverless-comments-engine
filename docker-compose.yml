@@ -5,8 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    environment:
-      FLASK_ENV: "development"
+    env_file:
+      - .env
     volumes:
       - ".:/code/"
     ports:

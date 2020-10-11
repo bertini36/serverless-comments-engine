@@ -11,3 +11,4 @@ Jinja2
 itsdangerous
 docutils
 click
+sentry-sdk[flask]
