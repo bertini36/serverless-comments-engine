@@ -9,7 +9,7 @@ build:
 	@docker-compose build --no-cache comments-engine
 
 serve:
-	@echo "🚀 Serving app"
+	@echo "🛫 Serving app"
 	docker-compose up comments-engine
 
 down:
@@ -40,5 +40,5 @@ test:
 	@echo "🏃‍ Running tests"
 
 deploy:
-	@echo "🛫 Let's deploy!!!"
+	@echo "🚀 Let's deploy!!!"
 	@docker-compose run --rm --entrypoint /bin/sh serverless -c "cd /code/ && serverless deploy"
