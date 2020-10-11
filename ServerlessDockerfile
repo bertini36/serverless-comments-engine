@@ -2,6 +2,7 @@ FROM ubuntu:latest
 
 USER root
 
+ENV FLASK_ENV production
 ENV AWS_ACCESS_KEY_ID test
 ENV AWS_SECRET_ACCESS_KEY test
 
