@@ -6,7 +6,7 @@ $(eval export $(shell sed -ne 's/ *#.*$//; /./ s/=.*$$// p' .env))
 .PHONY: build
 build:
 	@echo "📦 Building app"
-	@docker-compose build --no-cache comments-engine
+	@docker-compose build --no-cache
 
 serve:
 	@echo "🛫 Serving app"
@@ -31,6 +31,7 @@ log:
 update:
 	@echo "📥 Updating dependencies"
 	@docker-compose run --rm --entrypoint sh comments-engine -c "pip-compile /code/requirements/dev.in && pip-compile /code/requirements/prod.in"
+	@docker-compose run --rm --entrypoint sh comments-engine -c "pip install -r /code/requirements/dev.txt"
 
 lint:
 	@echo "🔦 Linting code"
@@ -38,7 +39,8 @@ lint:
 
 test:
 	@echo "🏃‍ Running tests"
+	@docker-compose run --rm --entrypoint sh comments-engine -c "cd /code/ && py.test"
 
 deploy:
 	@echo "🚀 Let's deploy!!!"
-	@docker-compose run --rm --entrypoint /bin/sh serverless -c "cd /code/ && serverless deploy"
+	@docker-compose run --rm --entrypoint sh serverless -c "cd /code/ && serverless deploy"

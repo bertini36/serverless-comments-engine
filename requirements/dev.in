@@ -2,3 +2,5 @@
 
 pip-tools
 git+git://github.com/psf/black
+pytest
+pytest-flask

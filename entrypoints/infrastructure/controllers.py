@@ -30,6 +30,9 @@ def add_comment(post_slug, comments_repository: CommentsRepository):
         creator.create(post_slug, **request.get_json())
         return jsonify({}), 200
 
+    except TypeError:
+        return jsonify({'text': 'Invalid data'}), 400
+
     except InvalidDataError as e:
         return jsonify({'text': str(e)}), 400
 
