@@ -5,7 +5,6 @@ from ...domain.comments_repository import CommentsRepository
 
 
 class CommentsSearcher:
-
     def __init__(self, repository: CommentsRepository):
         self.repository = repository
 

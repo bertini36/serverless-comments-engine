@@ -1,3 +1,4 @@
 -r base.in
 
 pip-tools
+git+git://github.com/psf/black

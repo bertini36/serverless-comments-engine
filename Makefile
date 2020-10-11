@@ -34,6 +34,7 @@ update:
 
 lint:
 	@echo "🔦 Linting code"
+	@docker-compose run --rm --entrypoint sh comments-engine -c "black /code/ -t py38 --line-length 80 --skip-string-normalization"
 
 test:
 	@echo "🏃‍ Running tests"

@@ -5,7 +5,6 @@ from ..domain.comment import Comment
 
 
 class CommentsRepository(ABC):
-
     @abstractmethod
     def get_comments(self, post_slug: str) -> List[Comment] or None:
         pass

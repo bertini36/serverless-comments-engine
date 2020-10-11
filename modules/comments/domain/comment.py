@@ -5,14 +5,8 @@ from .exceptions import InvalidDataError
 
 
 class Comment:
-
     def __init__(
-        self,
-        post_slug: str,
-        name: str,
-        email: str,
-        text: str,
-        date: str = None
+        self, post_slug: str, name: str, email: str, text: str, date: str = None
     ):
         self.post_slug = post_slug
         self.name = name
@@ -37,15 +31,16 @@ class Comment:
             'name': self.name,
             'email': self.email,
             'text': self.text,
-            'date': self.date
+            'date': self.date,
         }
 
     @classmethod
     def sort(cls, comments: List['Comment']) -> List['Comment']:
-        return list(sorted(
-            comments,
-            key=lambda comment: datetime.strptime(
-                comment.date,
-                '%Y-%m-%d %H:%M:%S.%f'
+        return list(
+            sorted(
+                comments,
+                key=lambda comment: datetime.strptime(
+                    comment.date, '%Y-%m-%d %H:%M:%S.%f'
+                ),
             )
-        ))
+        )

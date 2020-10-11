@@ -2,7 +2,9 @@ from flask import jsonify, request
 from flask_cors import cross_origin
 
 from modules.comments.application.create.comments_creator import CommentsCreator
-from modules.comments.application.search.comments_searcher import CommentsSearcher
+from modules.comments.application.search.comments_searcher import (
+    CommentsSearcher,
+)
 from modules.comments.domain.comments_repository import CommentsRepository
 from modules.comments.domain.exceptions import DatabaseError, InvalidDataError
 
