@@ -1,0 +1,13 @@
+Flask
+flask-cors
+dependency-injector
+Werkzeug
+urllib3
+six
+python-dateutil
+MarkupSafe
+jmespath
+Jinja2
+itsdangerous
+docutils
+click
