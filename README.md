@@ -15,8 +15,10 @@
   </a>
 </p>
 <p align="center">
-A basic comments engine coded just for fun and to use it on my
- <a href="https://albertopou.dev/" target="_blank">blog</a>.
+A simple Flasky app to save comments about topics deployed without cost using
+serverless and AWS lambda.
+ I use it in my
+ <a href="https://github.com/bertini36/bertini36.github.io" target="_blank">blog</a>.
 </p>
 <p align="center">
 Powered by <a href="https://www.serverless.com/" target="_blank">#serverless</a>,
