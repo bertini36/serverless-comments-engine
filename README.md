@@ -1,5 +1,8 @@
 [![Build Status](https://travis-ci.org/bertini36/comments-engine.svg?branch=master)](https://travis-ci.org/bertini36/comments-engine)
+[![Requirements Status](https://requires.io/github/bertini36/comments-engine/requirements.svg?branch=master)](https://requires.io/github/bertini36/comments-engine/requirements/?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/bertini36/comments-engine/badge.svg?branch=master)](https://coveralls.io/github/bertini36/comments-engine?branch=master)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 <h3 align="center">
     bertini36/comments-engine 🙊
 </h3>
