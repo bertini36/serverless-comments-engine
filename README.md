@@ -20,8 +20,6 @@
 <p align="center">
 A simple Flasky app to save comments about topics deployed without cost using
 serverless and AWS lambda.
- I use it in my
- <a href="https://github.com/bertini36/bertini36.github.io" target="_blank">blog</a>.
 </p>
 <p align="center">
 Powered by <a href="https://www.serverless.com/" target="_blank">#serverless</a>,
@@ -41,6 +39,26 @@ Powered by <a href="https://www.serverless.com/" target="_blank">#serverless</a>
 
 1. Install all the dependencies and bring up the project with Docker executing: `make build`
 2. Run the server: `make serve` (by default Flask runs applications at 5000 port)
+
+### 👩‍💻 API endpoints
+* Get comments
+```python
+import requests
+
+response = requests.get('http://127.0.0.1:5000/comments/topic')
+```
+* Register comment
+```python
+import json
+import requests
+
+response = requests.post(
+    'http://127.0.0.1:5000/comments/topic',
+    json.dumps({'name': 'John Doe', 'email': 'john@doe.com', 'text': 'Eyo'}),
+    headers={'Content-Type': 'application/json'}
+)
+```
+
 
 ## 🚀 Deploy
 

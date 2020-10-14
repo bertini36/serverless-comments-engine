@@ -2,16 +2,17 @@ from dependency_injector import containers, providers
 from dependency_injector.ext import flask
 from flask import Flask
 
-from entrypoints.infrastructure import controllers
-from modules.comments.infrastructure.repository.dynamo_comments_repository import (
-    DynamoCommentsRepository,
+from ..entrypoints.infrastructure import controllers
+from ..modules.comments.infrastructure.repository.inmemory_comments_repository import ( # noqa
+    InMemoryCommentsRepository,
 )
 
 
-class ProdApplicationContainer(containers.DeclarativeContainer):
+class DevAppContainer(containers.DeclarativeContainer):
     app = flask.Application(Flask, __name__)
 
-    comments_repository = providers.Factory(DynamoCommentsRepository)
+    # InMemory repository is used in development to avoid use Dynamo AWS
+    comments_repository = providers.Factory(InMemoryCommentsRepository)
 
     get_comments_view = flask.View(
         controllers.get_comments, comments_repository=comments_repository

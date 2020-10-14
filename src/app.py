@@ -4,7 +4,7 @@ import sentry_sdk
 from flask_cors import CORS
 from sentry_sdk.integrations.flask import FlaskIntegration
 
-from containers.dev_container import DevAppContainer
+from .containers.dev_container import DevAppContainer
 
 env = os.environ.get('FLASK_ENV')
 sentry_sdk.init(
@@ -19,7 +19,7 @@ def create_app():
     container = DevAppContainer()
 
     if env == 'production':
-        from containers.prod_container import ProdApplicationContainer
+        from src.containers import ProdApplicationContainer
 
         container = ProdApplicationContainer()
 
