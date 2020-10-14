@@ -14,11 +14,7 @@ def test_get_comments_ko(client):
 
 
 def test_add_comment_ok(client):
-    data = {
-        'name': 'Brook',
-        'email': 'brook@op.com',
-        'text': 'Yohoho'
-    }
+    data = {'name': 'Brook', 'email': 'brook@op.com', 'text': 'Yohoho'}
     res = client.get('comments/recoding-my-blog')
     num_comments_before = len(res.json)
 

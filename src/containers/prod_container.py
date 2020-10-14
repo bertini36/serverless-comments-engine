@@ -3,7 +3,7 @@ from dependency_injector.ext import flask
 from flask import Flask
 
 from ..entrypoints.infrastructure import controllers
-from ..modules.comments.infrastructure.repository.dynamo_comments_repository import (   # noqa
+from ..modules.comments.infrastructure.repository.dynamo_comments_repository import (  # noqa
     DynamoCommentsRepository,
 )
 
