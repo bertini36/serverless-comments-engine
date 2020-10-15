@@ -1,9 +1,16 @@
-def test_get_comments_ok(client):
-    # Exists at data/comments.json
-    res = client.get('comments/recoding-my-blog')
+def test_add_comment_ok(client):
+    data = {'name': 'John Doe', 'email': 'john@doe.com', 'text': 'Ouh mama'}
+
+    res = client.post('comments/test-post', json=data)
 
     assert res.status_code == 200
-    assert len(res.json) > 0
+
+
+def test_get_comments_ok(client):
+    res = client.get('comments/test-post')
+
+    assert res.status_code == 200
+    assert len(res.json) == 1
 
 
 def test_get_comments_ko(client):
@@ -13,22 +20,9 @@ def test_get_comments_ko(client):
     assert len(res.json) == 0
 
 
-def test_add_comment_ok(client):
-    data = {'name': 'Brook', 'email': 'brook@op.com', 'text': 'Yohoho'}
-    res = client.get('comments/recoding-my-blog')
-    num_comments_before = len(res.json)
-
-    client.post('comments/recoding-my-blog', json=data)
-
-    res = client.get('comments/recoding-my-blog')
-    num_comments_after = len(res.json)
-    assert res.status_code == 200
-    assert num_comments_before + 1 == num_comments_after
-
-
 def test_add_comment_ko(client):
     data = {'invent': 'invent'}
 
-    res = client.post('comments/recoding-my-blog', json=data)
+    res = client.post('comments/invent', json=data)
 
     assert res.status_code == 400

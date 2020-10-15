@@ -11,3 +11,6 @@ __pycache__
 
 # Node
 /node_modules/
+
+# Generated data
+/src/data/

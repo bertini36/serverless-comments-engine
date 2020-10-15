@@ -8,11 +8,11 @@ from ...domain.comments_repository import CommentsRepository
 
 
 class InMemoryCommentsRepository(CommentsRepository):
-    COMMENTS_PATH = 'src/data/comments.json'
 
-    def __init__(self):
+    def __init__(self, json_path: str):
         self.data = defaultdict(list)
-        if os.path.exists(self.COMMENTS_PATH):
+        self.json_path = json_path
+        if os.path.exists(self.json_path):
             self.data = defaultdict(list, self._read_comments_json())
 
     def get_comments(self, post_slug: str) -> List[Comment] or None:
@@ -23,7 +23,7 @@ class InMemoryCommentsRepository(CommentsRepository):
         self._write_comments_json()
 
     def _read_comments_json(self) -> dict:
-        serialized_data = json.load(open(self.COMMENTS_PATH, 'r'))
+        serialized_data = json.load(open(self.json_path, 'r'))
         data = {
             post_slug: [
                 Comment(**comment_kwargs) for comment_kwargs in raw_comments
@@ -37,4 +37,4 @@ class InMemoryCommentsRepository(CommentsRepository):
             post_slug: [comment.serialize() for comment in comments]
             for post_slug, comments in self.data.items()
         }
-        json.dump(serialized_data, open(self.COMMENTS_PATH, 'w'))
+        json.dump(serialized_data, open(self.json_path, 'w'))

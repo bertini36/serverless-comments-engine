@@ -8,13 +8,13 @@ from ..modules.comments.infrastructure.repository.inmemory_comments_repository i
 )
 
 
-class DevAppContainer(containers.DeclarativeContainer):
+class TestAppContainer(containers.DeclarativeContainer):
     app = flask.Application(Flask, __name__)
 
     # InMemory repository is used in development to avoid use Dynamo AWS
     comments_repository = providers.Factory(
         InMemoryCommentsRepository,
-        json_path='src/data/comments.json'
+        json_path='src/data/test_comments.json'
     )
 
     get_comments_view = flask.View(
