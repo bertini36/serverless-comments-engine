@@ -30,7 +30,7 @@ log:
 
 update-deps:
 	@echo "📥 Updating dependencies"
-	@docker-compose run --rm --entrypoint sh comments-engine -c "pip-compile /code/requirements/dev.in && pip-compile /code/requirements/prod.in"
+	@docker-compose run --rm --entrypoint sh comments-engine -c "pip-compile /code/requirements/dev.in --upgrade && pip-compile --upgrade /code/requirements/prod.in"
 	@docker-compose run --rm --entrypoint sh comments-engine -c "pip install -r /code/requirements/dev.txt"
 
 lint:
