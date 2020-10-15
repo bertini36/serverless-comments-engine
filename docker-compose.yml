@@ -7,6 +7,9 @@ services:
       dockerfile: Dockerfile
     env_file:
       - .env
+    environment:
+      - PYTHONIOENCODING=UTF-8
+      - PYTHONUNBUFFERED=1
     volumes:
       - ".:/code/"
     ports:

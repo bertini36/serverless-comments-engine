@@ -1,6 +1,7 @@
 import os
 
 import sentry_sdk
+from dependency_injector import containers
 from flask_cors import CORS
 from sentry_sdk.integrations.flask import FlaskIntegration
 
@@ -15,18 +16,18 @@ sentry_sdk.init(
 )
 
 
-def create_app():
+def get_container(env: str) -> containers.DeclarativeContainer:
     container = DevAppContainer()
-
     if env == 'production':
         from src.containers import ProdApplicationContainer
-
         container = ProdApplicationContainer()
+    return container
 
+
+def create_app(container):
     app = container.app()
     app.container = container
     app.debug = True
-
     app.add_url_rule(
         '/comments/<string:post_slug>',
         view_func=container.get_comments_view.as_view(),
@@ -40,6 +41,7 @@ def create_app():
     return app
 
 
-app = create_app()
+container = get_container(env)
+app = create_app(container)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
