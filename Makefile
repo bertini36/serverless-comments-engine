@@ -22,7 +22,7 @@ restart:
 
 connect:
 	@echo "🔞 Connecting to container"
-	@docker-compose run --rm --entrypoint bash
+	@docker-compose run comments-engine /bin/bash
 
 log:
 	@echo "📋 Showing logs"
@@ -39,7 +39,7 @@ lint:
 
 test:
 	@echo "🏃‍ Running tests"
-	@docker-compose run --rm --entrypoint sh comments-engine -c "cd /code/ && py.test"
+	@docker-compose run --rm --entrypoint sh comments-engine -c "cd /code/ && py.test tests --cov=/code/src"
 
 deploy:
 	@echo "🚀 Let's deploy!!!"
