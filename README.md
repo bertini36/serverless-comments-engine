@@ -18,8 +18,7 @@
   </a>
 </p>
 <p align="center">
-A simple Flasky app to save comments about topics deployed without cost using
-serverless and AWS lambda.
+A simple Flasky app to register comments about topics deployed online without cost.
 </p>
 <p align="center">
 Powered by <a href="https://www.serverless.com/" target="_blank">#serverless</a>,
@@ -71,5 +70,9 @@ After this, to update your lambda functions
 ```bash
 make deploy
 ```
+
+## 🚩 Next steps
+* Comments replies support
+* Comments likes support
 
 <p align="center">&mdash; Built with :heart: from Mallorca &mdash;</p>
