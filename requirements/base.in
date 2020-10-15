@@ -12,3 +12,4 @@ itsdangerous
 docutils
 click
 sentry-sdk[flask]
+structlog

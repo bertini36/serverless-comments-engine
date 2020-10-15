@@ -18,7 +18,7 @@
   </a>
 </p>
 <p align="center">
-A simple Flasky app to register comments about topics deployed online without cost.
+A simple Flasky app to save comments about topics deployed without cost using serverless and AWS lambda.
 </p>
 <p align="center">
 Powered by <a href="https://www.serverless.com/" target="_blank">#serverless</a>,
@@ -53,7 +53,7 @@ import requests
 
 response = requests.post(
     'http://127.0.0.1:5000/comments/topic',
-    json.dumps({'name': 'John Doe', 'email': 'john@doe.com', 'text': 'Eyo'}),
+    json.dumps({'name': 'John Doe', 'email': 'john@doe.com', 'text': 'Ouh mama'}),
     headers={'Content-Type': 'application/json'}
 )
 ```
