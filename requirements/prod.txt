@@ -5,8 +5,8 @@
 #    pip-compile /code/requirements/prod.in
 #
 blinker==1.4              # via sentry-sdk
-boto3==1.15.16            # via -r /code/requirements/prod.in
-botocore==1.18.16         # via -r /code/requirements/prod.in, boto3, s3transfer
+boto3==1.15.17            # via -r /code/requirements/prod.in
+botocore==1.18.17         # via -r /code/requirements/prod.in, boto3, s3transfer
 certifi==2020.6.20        # via sentry-sdk
 click==7.1.2              # via -r /code/requirements/base.in, flask
 dependency-injector==4.0.0  # via -r /code/requirements/base.in
