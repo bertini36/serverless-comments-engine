@@ -8,7 +8,6 @@ from ...domain.comments_repository import CommentsRepository
 
 
 class InMemoryCommentsRepository(CommentsRepository):
-
     def __init__(self, json_path: str):
         self.data = defaultdict(list)
         self.json_path = json_path

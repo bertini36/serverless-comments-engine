@@ -12,7 +12,7 @@ class Comment:
         name: str,
         email: str,
         text: str,
-        date: Union[datetime, str] = None
+        date: Union[datetime, str] = None,
     ):
         self.post_slug = post_slug
         self.name = name

@@ -20,6 +20,7 @@ def get_container(env: str) -> containers.DeclarativeContainer:
     container = DevAppContainer()
     if env == 'production':
         from src.containers import ProdApplicationContainer
+
         container = ProdApplicationContainer()
     return container
 

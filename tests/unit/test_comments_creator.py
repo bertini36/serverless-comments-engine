@@ -1,12 +1,12 @@
 import pytest
 
 from src.modules.comments.application.create.comments_creator import (
-    CommentsCreator
+    CommentsCreator,
 )
 from src.modules.comments.application.create.create_command import CreateCommand
 from src.modules.comments.domain.exceptions import InvalidDataError
 from src.modules.comments.infrastructure.repository.inmemory_comments_repository import (  # noqa
-    InMemoryCommentsRepository
+    InMemoryCommentsRepository,
 )
 from ..conftest import IN_MEMORY_COMMENTS_PATH
 
@@ -18,17 +18,14 @@ def test_create_comment():
         post_slug='dummy',
         name='John Doe',
         email='john@doe.com',
-        text='Ouh mama'
+        text='Ouh mama',
     )
     CommentsCreator(repository).create(command)
 
 
 def test_create_comment_with_validation_error():
     command = CreateCommand(
-        post_slug='dummy',
-        name='',
-        email='john@doe.com',
-        text='Ouh mama'
+        post_slug='dummy', name='', email='john@doe.com', text='Ouh mama'
     )
 
     with pytest.raises(InvalidDataError):
