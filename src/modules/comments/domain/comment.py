@@ -1,18 +1,24 @@
 from datetime import datetime
-from typing import List
+from operator import attrgetter
+from typing import List, Union
 
 from .exceptions import InvalidDataError
 
 
 class Comment:
     def __init__(
-        self, post_slug: str, name: str, email: str, text: str, date: str = None
+        self, post_slug: str,
+        name: str,
+        email: str,
+        text: str,
+        date: Union[datetime, str] = None
     ):
         self.post_slug = post_slug
         self.name = name
         self.email = email
         self.text = text
-        self.date = date if date else str(datetime.now())
+        self.date = self.get_date(date)
+
         self.validate()
 
     def validate(self):
@@ -31,16 +37,17 @@ class Comment:
             'name': self.name,
             'email': self.email,
             'text': self.text,
-            'date': self.date,
+            'date': str(self.date),
         }
 
     @classmethod
     def sort(cls, comments: List['Comment']) -> List['Comment']:
-        return list(
-            sorted(
-                comments,
-                key=lambda comment: datetime.strptime(
-                    comment.date, '%Y-%m-%d %H:%M:%S.%f'
-                ),
-            )
-        )
+        return list(sorted(comments, key=attrgetter('date')))
+
+    @staticmethod
+    def get_date(date: Union[datetime, str] = None):
+        if not date:
+            return datetime.now()
+        elif isinstance(date, str):
+            return datetime.strptime(date, '%Y-%m-%d %H:%M:%S.%f')
+        return date
