@@ -7,7 +7,8 @@ from .exceptions import InvalidDataError
 
 class Comment:
     def __init__(
-        self, post_slug: str,
+        self,
+        post_slug: str,
         name: str,
         email: str,
         text: str,

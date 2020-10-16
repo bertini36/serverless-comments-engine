@@ -5,6 +5,8 @@ import pytest
 from src.app import create_app
 from src.containers.test_container import TestAppContainer
 
+IN_MEMORY_COMMENTS_PATH = 'src/data/test_comments.json'
+
 
 @pytest.fixture
 def app():
@@ -14,4 +16,4 @@ def app():
 
 
 def pytest_unconfigure(config):
-    os.remove('src/data/test_comments.json')
+    os.remove(IN_MEMORY_COMMENTS_PATH)
