@@ -5,7 +5,7 @@ from ...modules.comments.application.create.comments_creator import (
     CommentsCreator,
 )
 from ...modules.comments.application.create.create_comment_command import (
-    CreateCommentCommand
+    CreateCommentCommand,
 )
 from ...modules.comments.application.search.comments_searcher import (
     CommentsSearcher,

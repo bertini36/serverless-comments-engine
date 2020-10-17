@@ -4,7 +4,7 @@ from src.modules.comments.application.create.comments_creator import (
     CommentsCreator,
 )
 from src.modules.comments.application.create.create_comment_command import (
-    CreateCommentCommand
+    CreateCommentCommand,
 )
 from src.modules.comments.domain.exceptions import InvalidDataError
 from src.modules.comments.infrastructure.repository.inmemory_comments_repository import (  # noqa
