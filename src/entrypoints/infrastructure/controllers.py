@@ -11,7 +11,7 @@ from ...modules.comments.application.search.comments_searcher import (
     CommentsSearcher,
 )
 from ...modules.comments.application.search.search_comments_query import (
-    SearchCommentsQuery
+    SearchCommentsQuery,
 )
 from ...modules.comments.domain.comments_repository import CommentsRepository
 from ...modules.comments.domain.exceptions import (
