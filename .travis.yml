@@ -7,8 +7,6 @@ language: python
 python:
   - 3.8
 
-install: pip install -r requirements/dev.txt
-
 services:
   - docker
 
@@ -16,10 +14,10 @@ before_install:
   - docker pull localstack/localstack
   - docker run --rm -d -p 4566:4566 localstack/localstack
 
+install: pip install -r requirements/dev.txt
+
 env:
-  - REGION_NAME=eu-west-1
-  - DYNAMODB_ENDPOINT_URL=http://localstack:4566
-  - COMMENTS_TABLE=comments-table
+  - REGION_NAME=eu-west-1 DYNAMODB_ENDPOINT_URL=http://localstack:4566 COMMENTS_TABLE=comments-table
 
 script: py.test tests --cov=src
 
