@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class CreateCommand:
+class CreateCommentCommand:
     post_slug: str
     name: str
     email: str

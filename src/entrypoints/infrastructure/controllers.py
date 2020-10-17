@@ -4,7 +4,9 @@ from flask_cors import cross_origin
 from ...modules.comments.application.create.comments_creator import (
     CommentsCreator,
 )
-from ...modules.comments.application.create.create_command import CreateCommand
+from ...modules.comments.application.create.create_comment_command import (
+    CreateCommentCommand
+)
 from ...modules.comments.application.search.comments_searcher import (
     CommentsSearcher,
 )
@@ -32,7 +34,7 @@ def get_comments(post_slug, comments_repository: CommentsRepository):
 @cross_origin()
 def add_comment(post_slug, comments_repository: CommentsRepository):
     try:
-        command = CreateCommand(post_slug, **request.get_json())
+        command = CreateCommentCommand(post_slug, **request.get_json())
         CommentsCreator(comments_repository).create(command)
         return jsonify({}), 200
 
