@@ -10,6 +10,9 @@ from ...modules.comments.application.create.create_comment_command import (
 from ...modules.comments.application.search.comments_searcher import (
     CommentsSearcher,
 )
+from ...modules.comments.application.search.search_comments_query import (
+    SearchCommentsQuery
+)
 from ...modules.comments.domain.comments_repository import CommentsRepository
 from ...modules.comments.domain.exceptions import (
     DatabaseError,
@@ -20,8 +23,9 @@ from ...modules.comments.domain.exceptions import (
 @cross_origin()
 def get_comments(post_slug, comments_repository: CommentsRepository):
     try:
+        query = SearchCommentsQuery(post_slug)
         searcher = CommentsSearcher(comments_repository)
-        comments = searcher.search(post_slug)
+        comments = searcher.search(query)
         return jsonify([comment.serialize() for comment in comments]), 200
 
     except InvalidDataError as e:
