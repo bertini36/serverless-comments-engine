@@ -6,6 +6,7 @@
 #
 appdirs==1.4.4            # via black
 attrs==20.2.0             # via pytest
+backcall==0.2.0           # via ipython
 git+git://github.com/psf/black  # via -r /code/requirements/dev.in
 blinker==1.4              # via sentry-sdk
 certifi==2020.6.20        # via requests, sentry-sdk
@@ -13,23 +14,33 @@ chardet==3.0.4            # via requests
 click==7.1.2              # via -r /code/requirements/base.in, black, flask, pip-tools
 coverage==5.3             # via coveralls, pytest-cov
 coveralls==2.1.2          # via -r /code/requirements/dev.in
-dependency-injector==4.0.0  # via -r /code/requirements/base.in
+decorator==4.4.2          # via ipython
+dependency-injector==4.0.3  # via -r /code/requirements/base.in
 docopt==0.6.2             # via coveralls
 docutils==0.16            # via -r /code/requirements/base.in
 flask-cors==3.0.9         # via -r /code/requirements/base.in
 flask==1.1.2              # via -r /code/requirements/base.in, flask-cors, pytest-flask, sentry-sdk
 idna==2.10                # via requests
 iniconfig==1.1.1          # via pytest
+ipython-genutils==0.2.0   # via traitlets
+ipython==7.18.1           # via -r /code/requirements/dev.in
 itsdangerous==1.1.0       # via -r /code/requirements/base.in, flask
+jedi==0.17.2              # via ipython
 jinja2==2.11.2            # via -r /code/requirements/base.in, flask
 jmespath==0.10.0          # via -r /code/requirements/base.in
 markupsafe==1.1.1         # via -r /code/requirements/base.in, jinja2
 mypy-extensions==0.4.3    # via black
 packaging==20.4           # via pytest
+parso==0.7.1              # via jedi
 pathspec==0.8.0           # via black
+pexpect==4.8.0            # via ipython
+pickleshare==0.7.5        # via ipython
 pip-tools==5.3.1          # via -r /code/requirements/dev.in
 pluggy==0.13.1            # via pytest
+prompt-toolkit==3.0.8     # via ipython
+ptyprocess==0.6.0         # via pexpect
 py==1.9.0                 # via pytest
+pygments==2.7.1           # via ipython
 pyparsing==2.4.7          # via packaging
 pytest-cov==2.10.1        # via -r /code/requirements/dev.in
 pytest-flask==1.0.0       # via -r /code/requirements/dev.in
@@ -41,10 +52,13 @@ sentry-sdk[flask]==0.19.0  # via -r /code/requirements/base.in
 six==1.15.0               # via -r /code/requirements/base.in, dependency-injector, flask-cors, packaging, pip-tools, python-dateutil, structlog
 structlog==20.1.0         # via -r /code/requirements/base.in
 toml==0.10.1              # via black, pytest
+traitlets==5.0.5          # via ipython
 typed-ast==1.4.1          # via black
 typing-extensions==3.7.4.3  # via black
 urllib3==1.25.10          # via -r /code/requirements/base.in, requests, sentry-sdk
+wcwidth==0.2.5            # via prompt-toolkit
 werkzeug==1.0.1           # via -r /code/requirements/base.in, flask, pytest-flask
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
+# setuptools
