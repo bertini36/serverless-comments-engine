@@ -3,6 +3,8 @@ all: build
 include .env
 $(eval export $(shell sed -ne 's/ *#.*$//; /./ s/=.*$$// p' .env))
 
+service = comments-engine
+
 .PHONY: build
 build:
 	@echo "📦 Building app"
@@ -10,7 +12,7 @@ build:
 
 serve:
 	@echo "🛫 Serving app"
-	docker-compose up comments-engine
+	docker-compose up $(service)
 
 down:
 	@echo "🔌 Disconnecting"
@@ -18,15 +20,15 @@ down:
 
 restart:
 	@echo "↩️ Restarting"
-	@docker-compose restart
+	@docker-compose restart $(service)
 
 connect:
 	@echo "🔞 Connecting to container"
-	@docker-compose run comments-engine /bin/bash
+	@docker-compose run $(service) /bin/bash
 
 log:
 	@echo "📋 Showing logs"
-	@docker-compose logs -f --tail 100 comments-engine
+	@docker-compose logs -f --tail 100 $(service)
 
 update-deps:
 	@echo "📥 Updating dependencies"

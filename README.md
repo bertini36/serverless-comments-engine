@@ -19,7 +19,7 @@
 </p>
 <p align="center">
 A simple Flasky app to save comments about topics deployed without cost using
-<a href="https://www.serverless.com/" target="_blank">Serverless</a>.
+<a href="https://www.serverless.com/" target="_blank">Serverless</a> framework.
 </p>
 <p align="center">
 Powered by <a href="https://www.serverless.com/" target="_blank">#serverless</a>,
@@ -75,5 +75,6 @@ make deploy
 ## 🚩 Next steps
 * Email notifications when new comment
 * Comments replies and likes support
+* Update to Python 3.9
 
 <p align="center">&mdash; Built with :heart: from Mallorca &mdash;</p>
