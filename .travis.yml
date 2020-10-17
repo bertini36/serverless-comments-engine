@@ -17,7 +17,10 @@ before_install:
 install: pip install -r requirements/dev.txt
 
 env:
-  - REGION_NAME=eu-west-1 DYNAMODB_ENDPOINT_URL=http://localstack:4566 COMMENTS_TABLE=comments-table
+  global:
+    - REGION_NAME=eu-west-1
+    - DYNAMODB_ENDPOINT_URL=http://localstack:4566
+    - COMMENTS_TABLE=comments-table
 
 script: py.test tests --cov=src
 
