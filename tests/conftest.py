@@ -16,4 +16,5 @@ def app():
 
 
 def pytest_unconfigure(config):
-    os.remove(IN_MEMORY_COMMENTS_PATH)
+    if os.path.exists(IN_MEMORY_COMMENTS_PATH):
+        os.remove(IN_MEMORY_COMMENTS_PATH)
