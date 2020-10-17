@@ -18,7 +18,8 @@
   </a>
 </p>
 <p align="center">
-A simple Flasky app to save comments about topics deployed without cost using serverless and AWS lambda.
+A simple Flasky app to save comments about topics deployed without cost using
+<a href="https://www.serverless.com/" target="_blank">Serverless</a>.
 </p>
 <p align="center">
 Powered by <a href="https://www.serverless.com/" target="_blank">#serverless</a>,
@@ -61,7 +62,7 @@ response = requests.post(
 
 ## 🚀 Deploy
 
-First configure your AWS credentials and Sentry DSN in `.env` file.
+First configure your AWS credentials and [Sentry](https://sentry.io/) DSN in `.env` file.
 ```bash
 cp .env-sample .env
 ```
@@ -72,7 +73,7 @@ make deploy
 ```
 
 ## 🚩 Next steps
-* Comments replies support
-* Comments likes support
+* Email notifications when new comment
+* Comments replies and likes support
 
 <p align="center">&mdash; Built with :heart: from Mallorca &mdash;</p>
