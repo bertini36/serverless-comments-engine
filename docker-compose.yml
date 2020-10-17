@@ -2,6 +2,7 @@ version: "3"
 services:
 
   comments-engine:
+    container_name: "comments-engine"
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,6 +11,10 @@ services:
     environment:
       - PYTHONIOENCODING=UTF-8
       - PYTHONUNBUFFERED=1
+      - FLASK_ENV=development
+      - REGION_NAME=eu-west-1
+      - DYNAMODB_ENDPOINT_URL=http://localstack:4566
+      - COMMENTS_TABLE=comments-table
     volumes:
       - ".:/code/"
     ports:
@@ -17,6 +22,7 @@ services:
     command: flask run
 
   serverless:
+    container_name: "serverless"
     build:
       context: .
       dockerfile: ServerlessDockerfile
@@ -24,3 +30,15 @@ services:
       - .env
     volumes:
       - ".:/code/"
+
+  localstack:
+    container_name: "localstack"
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+      - "8080:8080"
+    environment:
+      - SERVICES=dynamodb
+      - DATA_DIR=/tmp/localstack/data
+      - PORT_WEB_UI=8080
+      - LOCALSTACK_HOSTNAME=localstack

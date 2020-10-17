@@ -41,6 +41,7 @@ lint:
 
 test:
 	@echo "🏃‍ Running tests"
+	docker-compose up -d localstack
 	@docker-compose run --rm --entrypoint sh comments-engine -c "cd /code/ && py.test tests --cov=/code/src"
 
 deploy:

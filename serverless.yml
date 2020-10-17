@@ -35,8 +35,9 @@ provider:
       Resource:
         - { "Fn::GetAtt": ['CommentsDynamoDBTable', 'Arn' ] }
   environment:
-    COMMENTS_TABLE: ${self:custom.commentsTableName}
     FLASK_ENV: 'production'
+    REGION_NAME: 'eu-west-1'
+    COMMENTS_TABLE: ${self:custom.commentsTableName}
 
 functions:
   getComments:

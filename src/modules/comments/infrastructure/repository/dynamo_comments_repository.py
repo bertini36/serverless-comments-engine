@@ -10,10 +10,12 @@ from ...domain.exceptions import DatabaseError
 
 
 class DynamoCommentsRepository(CommentsRepository):
-    REGION_NAME = 'eu-west-1'
-
     def __init__(self):
-        self.client = boto3.resource('dynamodb', region_name=self.REGION_NAME)
+        self.client = boto3.resource(
+            'dynamodb',
+            region_name=os.environ.get('REGION_NAME'),
+            endpoint_url=os.environ.get('DYNAMODB_ENDPOINT_URL'),
+        )
         self.table = self.client.Table(os.environ['COMMENTS_TABLE'])
 
     def get_comments(self, post_slug: str) -> List[Comment] or None:
