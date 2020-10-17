@@ -19,16 +19,6 @@ def create_comments_table():
     )
     table_name = os.environ.get('COMMENTS_TABLE')
     table = client.Table(table_name)
-    table_exists = table.table_status in (
-        'CREATING',
-        'UPDATING',
-        'DELETING',
-        'ACTIVE',
-    )
-
-    if table_exists:
-        table.delete()
-
     params = {
         'TableName': table_name,
         'KeySchema': [
@@ -42,9 +32,12 @@ def create_comments_table():
             'WriteCapacityUnits': 10,
         },
     }
-    table = client.create_table(**params)
-    table.wait_until_exists()
-    logger.info('dynamo-table-created', table_name=table_name)
+    try:
+        table = client.create_table(**params)
+        table.wait_until_exists()
+        logger.info('dynamo-table-created', table_name=table_name)
+    except client.exceptions.ResourceInUseException:
+        pass
     return table
 
 
