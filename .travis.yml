@@ -19,7 +19,7 @@ install: pip install -r requirements/dev.txt
 env:
   global:
     - REGION_NAME=eu-west-1
-    - DYNAMODB_ENDPOINT_URL=http://localstack:4566
+    - DYNAMODB_ENDPOINT_URL=http://127.0.0.1:4566
     - COMMENTS_TABLE=comments-table
     - AWS_ACCESS_KEY_ID=root
     - AWS_SECRET_ACCESS_KEY=pass
