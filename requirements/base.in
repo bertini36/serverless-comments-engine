@@ -14,3 +14,5 @@ click
 sentry-sdk[flask]
 structlog
 boto3
+botocore
+s3transfer

@@ -1,4 +1,1 @@
 -r base.in
-
-botocore
-s3transfer

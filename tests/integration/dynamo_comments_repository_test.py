@@ -1,10 +1,12 @@
 import os
 
 import boto3
+from botocore.exceptions import ClientError
 from structlog import get_logger
 
 from src.modules.comments.domain.comment import Comment
-from src.modules.comments.infrastructure.repository.dynamo_comments_repository import (  # noqa
+from src.modules.comments.infrastructure.repository\
+    .dynamo_comments_repository import (  # noqa
     DynamoCommentsRepository,
 )
 
@@ -32,12 +34,14 @@ def create_comments_table():
             'WriteCapacityUnits': 10,
         },
     }
+
     try:
         table = client.create_table(**params)
         table.wait_until_exists()
         logger.info('dynamo-table-created', table_name=table_name)
-    except client.exceptions.ResourceInUseException:
+    except ClientError:
         pass
+
     return table
 
 
