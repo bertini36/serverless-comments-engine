@@ -1,5 +1,4 @@
 -r base.in
 
-boto3
 botocore
 s3transfer

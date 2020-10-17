@@ -9,6 +9,8 @@ attrs==20.2.0             # via pytest
 backcall==0.2.0           # via ipython
 git+git://github.com/psf/black  # via -r /code/requirements/dev.in
 blinker==1.4              # via sentry-sdk
+boto3==1.15.18            # via -r /code/requirements/base.in
+botocore==1.18.18         # via boto3, s3transfer
 certifi==2020.6.20        # via requests, sentry-sdk
 chardet==3.0.4            # via requests
 click==7.1.2              # via -r /code/requirements/base.in, black, flask, pip-tools
@@ -27,7 +29,7 @@ ipython==7.18.1           # via -r /code/requirements/dev.in
 itsdangerous==1.1.0       # via -r /code/requirements/base.in, flask
 jedi==0.17.2              # via ipython
 jinja2==2.11.2            # via -r /code/requirements/base.in, flask
-jmespath==0.10.0          # via -r /code/requirements/base.in
+jmespath==0.10.0          # via -r /code/requirements/base.in, boto3, botocore
 markupsafe==1.1.1         # via -r /code/requirements/base.in, jinja2
 mypy-extensions==0.4.3    # via black
 packaging==20.4           # via pytest
@@ -45,9 +47,10 @@ pyparsing==2.4.7          # via packaging
 pytest-cov==2.10.1        # via -r /code/requirements/dev.in
 pytest-flask==1.0.0       # via -r /code/requirements/dev.in
 pytest==6.1.1             # via -r /code/requirements/dev.in, pytest-cov, pytest-flask
-python-dateutil==2.8.1    # via -r /code/requirements/base.in
+python-dateutil==2.8.1    # via -r /code/requirements/base.in, botocore
 regex==2020.10.15         # via black
 requests==2.24.0          # via coveralls
+s3transfer==0.3.3         # via boto3
 sentry-sdk[flask]==0.19.0  # via -r /code/requirements/base.in
 six==1.15.0               # via -r /code/requirements/base.in, dependency-injector, flask-cors, packaging, pip-tools, python-dateutil, structlog
 structlog==20.1.0         # via -r /code/requirements/base.in
@@ -55,7 +58,7 @@ toml==0.10.1              # via black, pytest
 traitlets==5.0.5          # via ipython
 typed-ast==1.4.1          # via black
 typing-extensions==3.7.4.3  # via black
-urllib3==1.25.10          # via -r /code/requirements/base.in, requests, sentry-sdk
+urllib3==1.25.10          # via -r /code/requirements/base.in, botocore, requests, sentry-sdk
 wcwidth==0.2.5            # via prompt-toolkit
 werkzeug==1.0.1           # via -r /code/requirements/base.in, flask, pytest-flask
 

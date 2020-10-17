@@ -13,3 +13,4 @@ docutils
 click
 sentry-sdk[flask]
 structlog
+boto3
