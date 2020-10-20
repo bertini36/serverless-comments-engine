@@ -8,7 +8,7 @@ service = comments-engine
 .PHONY: build
 build:
 	@echo "📦 Building app"
-	@docker-compose build --no-cache
+	@docker-compose build --no-cache $(service)
 
 serve:
 	@echo "🛫 Serving app"
