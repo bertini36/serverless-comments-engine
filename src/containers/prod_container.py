@@ -8,7 +8,7 @@ from ..modules.comments.infrastructure.repository.dynamo_comments_repository imp
 )
 
 
-class ProdApplicationContainer(containers.DeclarativeContainer):
+class ProdAppContainer(containers.DeclarativeContainer):
     app = flask.Application(Flask, __name__)
 
     comments_repository = providers.Factory(DynamoCommentsRepository)

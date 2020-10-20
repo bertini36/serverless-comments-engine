@@ -7,7 +7,7 @@ plugins:
 custom:
   commentsTableName: 'comments-table-${self:provider.stage}'
   wsgi:
-    app: app.app
+    app: src.app.app
     packRequirements: false
   pythonRequirements:
     dockerizePip: non-linux

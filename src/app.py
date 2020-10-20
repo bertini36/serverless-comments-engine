@@ -1,4 +1,5 @@
 import os
+from typing import Union
 
 import sentry_sdk
 from dependency_injector import containers
@@ -6,6 +7,7 @@ from flask_cors import CORS
 from sentry_sdk.integrations.flask import FlaskIntegration
 
 from .containers.dev_container import DevAppContainer
+from .containers.prod_container import ProdAppContainer
 
 env = os.environ.get('FLASK_ENV')
 sentry_sdk.init(
@@ -17,15 +19,12 @@ sentry_sdk.init(
 
 
 def get_container(env: str) -> containers.DeclarativeContainer:
-    container = DevAppContainer()
     if env == 'production':
-        from src.containers import ProdApplicationContainer
-
-        container = ProdApplicationContainer()
-    return container
+        return ProdAppContainer()
+    return DevAppContainer()
 
 
-def create_app(container):
+def create_app(container: Union[DevAppContainer, ProdAppContainer]):
     app = container.app()
     app.container = container
     app.debug = True
