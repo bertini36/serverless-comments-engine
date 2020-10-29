@@ -67,6 +67,14 @@ First configure your AWS credentials and [Sentry](https://sentry.io/) DSN in `.e
 cp .env-sample .env
 ```
 
+Ensure that your AWS user group has the required roles:
+* `AWSLambdaFullAccess`
+* `IAMFullAccess`
+* `CloudWatchFullAccess`
+* `AmazonDynamoDBFullAccess`
+* `AmazonAPIGatewayAdministrator`
+* `AWSCloudFormationFullAccess`
+
 After this, to update your lambda functions
 ```bash
 make deploy
@@ -77,4 +85,5 @@ make deploy
 * Comments replies and likes support
 * Update to Python 3.9
 
+<br />
 <p align="center">&mdash; Built with :heart: from Mallorca &mdash;</p>
