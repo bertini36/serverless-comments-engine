@@ -62,7 +62,8 @@ response = requests.post(
 
 ## 🚀 Deploy
 
-First configure your AWS credentials and [Sentry](https://sentry.io/) DSN in `.env` file.
+First set your AWS credentials and optionally, you can add a
+ [Sentry](https://sentry.io/) DSN in `.env` file.
 ```bash
 cp .env-sample .env
 ```
