@@ -56,7 +56,7 @@ six==1.15.0               # via -r /code/requirements/base.in, dependency-inject
 structlog==20.1.0         # via -r /code/requirements/base.in
 toml==0.10.1              # via black, pytest
 traitlets==5.0.5          # via ipython
-typed-ast==1.4.1          # via black
+typed-ast==1.4.2          # via black
 typing-extensions==3.7.4.3  # via black
 urllib3==1.25.10          # via -r /code/requirements/base.in, botocore, requests, sentry-sdk
 wcwidth==0.2.5            # via prompt-toolkit
