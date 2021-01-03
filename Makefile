@@ -6,46 +6,51 @@ $(eval export $(shell sed -ne 's/ *#.*$//; /./ s/=.*$$// p' .env))
 service = comments-engine
 
 .PHONY: build
-build: ## build app
+build: ## 📦 Build app
 	@echo "📦 Building app"
 	@docker-compose build --no-cache $(service)
 
-up: ## run app
+up: ## 🛫 Run app
 	@echo "🛫 Serving app"
 	docker-compose up $(service)
 
-down: ## shut down app
+down: ## 🔌 Shut down app deleting containers
 	@echo "🔌 Disconnecting"
 	@docker-compose down
 
-restart: ## restart a container
+kill: ## 🗡️ Kill containers
+	@echo "🗡️ Killing"
+	@docker-compose kill
+
+restart: ## ↩️ Restart
 	@echo "↩️ Restarting"
-	@docker-compose restart $(service)
+	@docker-compose restart
 
-connect: ## connect to a container
+connect: ## 🔞 Connect to container
 	@echo "🔞 Connecting to container"
-	@docker-compose run $(service) /bin/bash
+	@docker-compose run --rm --entrypoint bash
 
-log: ## show container logs
+log: ## 📋 Show container logs
 	@echo "📋 Showing logs"
 	@docker-compose logs -f --tail 100 $(service)
 
-update-deps: ## update requirements files with last packages versions
+update-deps: ## 📥 Update requirements files with last packages versions
 	@echo "📥 Updating dependencies"
 	@docker-compose run --rm --entrypoint sh comments-engine -c "pip-compile /code/requirements/dev.in --upgrade && pip-compile --upgrade /code/requirements/prod.in"
 
-lint: ## lint code
+lint: ## 🔦 Lint code
 	@echo "🔦 Linting code"
 	@docker-compose run --rm --entrypoint sh comments-engine -c "black /code/ -t py38 --line-length 80 --skip-string-normalization"
 
-test: ## run tests
+test: ## 🏃 Run tests
 	@echo "🏃‍ Running tests"
 	docker-compose up -d localstack
 	@docker-compose run --rm --entrypoint sh comments-engine -c "cd /code/ && py.test tests --cov=/code/src $(args)"
 
-deploy: ## deploy app in AWS
+deploy: ## 🚀 Deploy app in AWS
 	@echo "🚀 Let's deploy!!!"
 	@docker-compose run --rm --entrypoint sh serverless -c "cd /code/ && serverless deploy"
 
-help: ## show make targets
+help: ## 📖 Show make targets
+	echo "📖 Help"
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {sub("\\\\n",sprintf("\n%22c"," "), $$2);printf " \033[36m%-20s\033[0m  %s\n", $$1, $$2}' $(MAKEFILE_LIST)
