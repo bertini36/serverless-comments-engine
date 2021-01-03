@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/bertini36/comments-engine.svg?branch=master)](https://travis-ci.org/bertini36/comments-engine)
-[![Requirements Status](https://requires.io/github/bertini36/comments-engine/requirements.svg?branch=master)](https://requires.io/github/bertini36/comments-engine/requirements/?branch=master)
-[![Coverage Status](https://coveralls.io/repos/github/bertini36/comments-engine/badge.svg?branch=master)](https://coveralls.io/github/bertini36/comments-engine?branch=master)
+[![Build Status](https://travis-ci.org/bertini36/serverless-comments-engine.svg?branch=master)](https://travis-ci.org/bertini36/serverless-comments-engine)
+[![Requirements Status](https://requires.io/github/bertini36/serverless-comments-engine/requirements.svg?branch=master)](https://requires.io/github/bertini36/serverless-comments-engine/requirements/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/bertini36/serverless-comments-engine/badge.svg?branch=master)](https://coveralls.io/github/bertini36/serverless-comments-engine?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 <h3 align="center">
@@ -10,10 +10,10 @@
   <a href="#-environment-setup" target="_blank">
     Installation
   </a>&nbsp;&nbsp;•&nbsp;
-  <a href="https://github.com/bertini36/comments-engine/blob/master/serverless.yml" target="_blank">
+  <a href="https://github.com/bertini36/serverless-comments-engine/blob/master/serverless.yml" target="_blank">
     Serverless config
   </a>&nbsp;&nbsp;•&nbsp;
-  <a href="https://github.com/bertini36/comments-engine/blob/master/Makefile" target="_blank">
+  <a href="https://github.com/bertini36/serverless-comments-engine/blob/master/Makefile" target="_blank">
     Commands
   </a>
 </p>
@@ -32,8 +32,8 @@ Powered by <a href="https://www.serverless.com/" target="_blank">#serverless</a>
 ### 🐳 Required tools
 
 1. [Install Docker and Docker Compose](https://www.docker.com/get-started)
-2. Clone this project: `git clone https://github.com/bertini36/comments-engine`
-3. Move to the project folder: `comments-engine`
+2. Clone this project: `git clone https://github.com/bertini36/serverless-comments-engine`
+3. Move to the project folder: `serverless-comments-engine`
 
 ### 🔥 Application execution
 
