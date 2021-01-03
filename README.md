@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 <h3 align="center">
-    bertini36/comments-engine 💬
+    bertini36/serverless-comments-engine 💬
 </h3>
 <p align="center">
   <a href="#-environment-setup" target="_blank">
