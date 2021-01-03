@@ -10,7 +10,7 @@ build: ## build app
 	@echo "📦 Building app"
 	@docker-compose build --no-cache $(service)
 
-serve: ## run app
+up: ## run app
 	@echo "🛫 Serving app"
 	docker-compose up $(service)
 

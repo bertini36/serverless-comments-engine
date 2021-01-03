@@ -38,7 +38,7 @@ Powered by <a href="https://www.serverless.com/" target="_blank">#serverless</a>
 ### 🔥 Application execution
 
 1. Install all the dependencies and bring up the project with Docker executing: `make build`
-2. Run the server: `make serve` (by default Flask runs applications at 5000 port)
+2. Run the server: `make up` (by default Flask runs applications at 5000 port)
 
 ### 👩‍💻 API endpoints
 * Get comments
