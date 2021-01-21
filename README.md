@@ -19,7 +19,8 @@
 </p>
 <p align="center">
 A simple Flasky app to save comments about topics deployed without cost using
-<a href="https://www.serverless.com/" target="_blank">Serverless</a> framework.
+<a href="https://www.serverless.com/" target="_blank">Serverless</a> framework and
+<a href="https://aws.amazon.com/" target="_blank">AWS</a>.
 </p>
 <p align="center">
 Powered by <a href="https://www.serverless.com/" target="_blank">#serverless</a>,
