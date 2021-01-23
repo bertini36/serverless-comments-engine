@@ -28,12 +28,13 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-      Resource:
-        - { "Fn::GetAtt": ['CommentsDynamoDBTable', 'Arn' ] }
+        - lambda:FullAccess
+        - iam:FullAccess
+        - cloudwatch:FullAccess
+        - dynamodb:FullAccess
+        - apigateway:FullAccess
+        - cloudformation:FullAccess
+      Resource: '*'
   environment:
     FLASK_ENV: 'production'
     REGION_NAME: 'eu-west-1'
