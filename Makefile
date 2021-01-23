@@ -26,6 +26,10 @@ restart: ## ↩️ Restart
 	@echo "↩️ Restarting"
 	@docker-compose restart
 
+clean:	## 🧹 Delete containers and their volumes
+	@echo "🧹 Cleaning"
+	@docker-compose down -v --remove-orphans
+
 connect: ## 🔞 Connect to container
 	@echo "🔞 Connecting to container"
 	@docker-compose run --rm --entrypoint bash
@@ -36,7 +40,7 @@ log: ## 📋 Show container logs
 
 update-deps: ## 📥 Update requirements files with last packages versions
 	@echo "📥 Updating dependencies"
-	@docker-compose run --rm --entrypoint sh comments-engine -c "pip-compile /code/requirements/dev.in --upgrade && pip-compile --upgrade /code/requirements/prod.in"
+	@docker-compose run --rm --entrypoint sh comments-engine -c "pip-compile /code/requirements/dev.in && pip-compile /code/requirements/prod.in"
 
 lint: ## 🔦 Lint code
 	@echo "🔦 Linting code"
