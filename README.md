@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/bertini36/serverless-comments-engine.svg?branch=master)](https://travis-ci.org/bertini36/serverless-comments-engine)
 [![Requirements Status](https://requires.io/github/bertini36/serverless-comments-engine/requirements.svg?branch=master)](https://requires.io/github/bertini36/serverless-comments-engine/requirements/?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/bertini36/serverless-comments-engine/badge.svg?branch=master)](https://coveralls.io/github/bertini36/serverless-comments-engine?branch=master)
+[![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 <h3 align="center">
@@ -77,15 +78,11 @@ Ensure that your AWS user group has the required roles:
 * `AmazonAPIGatewayAdministrator`
 * `AWSCloudFormationFullAccess`
 
-After this, to update your lambda functions
+After this, to deploy your lambda functions
 ```bash
 make deploy
 ```
-
-## 🚩 Next steps
-* Email notifications when new comment
-* Comments replies and likes support
-* Update to Python 3.9
+When deploy is finished you will see the app endpoints for get and add comments.
 
 <br />
 <p align="center">&mdash; Built with :heart: from Mallorca &mdash;</p>

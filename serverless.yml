@@ -1,5 +1,5 @@
 org: bertini36
-service: serverless-flask
+service: serverless-comments-engine
 
 plugins:
   - serverless-python-requirements

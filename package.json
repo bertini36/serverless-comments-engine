@@ -1,7 +1,7 @@
 {
-  "name": "serverless-flask",
+  "name": "serverless-comments-engine",
   "description": "",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "dependencies": {},
   "devDependencies": {
     "serverless": "^1.79.0",
