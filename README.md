@@ -21,12 +21,12 @@
 <p align="center">
 A simple Flasky app to save comments about topics deployed without cost using
 <a href="https://www.serverless.com/" target="_blank">Serverless</a> framework and
-<a href="https://aws.amazon.com/" target="_blank">AWS</a>.
+<a href="https://aws.amazon.com/" target="_blank">AWS</a>
 </p>
 <p align="center">
 Powered by <a href="https://www.serverless.com/" target="_blank">#serverless</a>,
 <a href="https://aws.amazon.com/" target="_blank">#aws</a> and
- <a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank">#flask</a>.
+ <a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank">#flask</a>
 </p>
 
 ## ⚙️ Environment Setup
